@@ -15,10 +15,10 @@ const Companies: React.FC = () => {
   return (
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        {/* Companies List (moved below tech stack) */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12 mt-20">
           Companies I've love to With
         </h2>
-        
         <div className="overflow-x-auto">
           <div className="flex justify-center items-center space-x-8 sm:space-x-12 min-w-max px-4">
             {companies.map((company) => (
@@ -40,7 +40,6 @@ const Companies: React.FC = () => {
             ))}
           </div>
         </div>
-
         {/* Swipe indicator for mobile */}
         <div className="sm:hidden text-center mt-8">
           <p className="text-sm text-gray-500 dark:text-gray-400">

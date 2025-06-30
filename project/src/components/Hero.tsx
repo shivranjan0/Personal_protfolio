@@ -23,10 +23,7 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
-            Devlop for
-            <span className="block bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-              Amazing People
-            </span>
+            Devlop for <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">Amazing People</span>
           </h1>
           
           <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -44,20 +41,30 @@ const Hero: React.FC = () => {
             </div>
             
             {/* Floating Skill Tags */}
-            {skills.map((skill, index) => (
-              <div
-                key={skill}
-                className={`absolute bg-white dark:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium shadow-lg border border-gray-200 dark:border-gray-700 whitespace-nowrap
-                  ${index === 0 ? 'top-4 -left-4 sm:-left-8 animate-bounce' : ''}
-                  ${index === 1 ? 'top-1/4 -right-4 sm:-right-8 animate-bounce' : ''}
-                  ${index === 2 ? 'bottom-1/4 -left-4 sm:-left-8 animate-bounce' : ''}
-                  ${index === 3 ? 'bottom-4 -right-4 sm:-right-8 animate-bounce' : ''}
-                `}
-                style={{ animationDelay: `${index * 0.5}s`, animationDuration: '3s' }}
-              >
-                {skill}
-              </div>
-            ))}
+            {skills.map((skill, index) => {
+              // Define a different hover color for each tag
+              const hoverColors = [
+                'hover:bg-cyan-400 hover:text-white dark:hover:bg-cyan-400 dark:hover:text-black',
+                'hover:bg-emerald-400 hover:text-white dark:hover:bg-emerald-400 dark:hover:text-black',
+                'hover:bg-purple-400 hover:text-white dark:hover:bg-purple-400 dark:hover:text-black',
+                'hover:bg-pink-400 hover:text-white dark:hover:bg-pink-400 dark:hover:text-black',
+              ];
+              return (
+                <div
+                  key={skill}
+                  className={`absolute bg-white dark:bg-gray-800 px-3 py-1 rounded-full text-sm font-medium shadow-lg border border-gray-200 dark:border-gray-700 whitespace-nowrap
+                    ${index === 0 ? 'top-4 -left-4 sm:-left-8 animate-bounce' : ''}
+                    ${index === 1 ? 'top-1/4 -right-4 sm:-right-8 animate-bounce' : ''}
+                    ${index === 2 ? 'bottom-1/4 -left-4 sm:-left-8 animate-bounce' : ''}
+                    ${index === 3 ? 'bottom-4 -right-4 sm:-right-8 animate-bounce' : ''}
+                    text-black dark:text-white transition-colors duration-300 ${hoverColors[index]}`
+                  }
+                  style={{ animationDelay: `${index * 0.5}s`, animationDuration: '3s' }}
+                >
+                  {skill}
+                </div>
+              );
+            })}
           </div>
 
           {/* Social Media Links */}
